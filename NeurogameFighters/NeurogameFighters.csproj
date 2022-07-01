@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <AssemblyName>NeuroFighters</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\15.png" />
+    <None Remove="images\19.png" />
+    <None Remove="images\background1.png" />
+    <None Remove="images\bg1.jpg" />
+    <None Remove="images\bg2.jpg" />
+    <None Remove="images\bg3.jpg" />
+    <None Remove="images\bg4.png" />
+    <None Remove="images\bg6.png" />
+    <None Remove="images\bg7.png" />
+    <None Remove="images\bg8.png" />
+    <None Remove="images\bg9.png" />
+    <None Remove="images\ico3.png" />
+    <None Remove="images\icon.ico" />
+    <None Remove="images\icon.png" />
+    <None Remove="images\player2.png" />
+    <None Remove="images\player3.png" />
+    <None Remove="images\return.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\15.png" />
+    <Resource Include="images\19.png" />
+    <Resource Include="images\background1.png" />
+    <Resource Include="images\bg1.jpg" />
+    <Resource Include="images\bg2.jpg" />
+    <Resource Include="images\bg3.jpg" />
+    <Resource Include="images\bg4.png" />
+    <Resource Include="images\bg6.png" />
+    <Resource Include="images\bg7.png" />
+    <Resource Include="images\bg8.png" />
+    <Resource Include="images\bg9.png" />
+    <Resource Include="images\ico3.png" />
+    <Resource Include="images\icon.ico" />
+    <Resource Include="images\icon.png" />
+    <Resource Include="images\player2.png" />
+    <Resource Include="images\player3.png" />
+    <Resource Include="images\return.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="NeurogameFighters.Views.BlackScreenModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeurogameFighters.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Canvas Background="Black">
+        <Button Command="{Binding ChangeControllerToLearningModeCommand}"  Content="Włącz tryb graficzny" Foreground="Yellow" Width="199" Height="49" FontFamily="Lato" FontSize="18" FontWeight="Normal" BorderBrush="{x:Null}" Canvas.Left="541" Canvas.Top="580">
+            <Button.Background>
+                <SolidColorBrush Color="#FF6B6B6B" Opacity="0.15"/>
+            </Button.Background>
+        </Button>
+        <TextBlock Canvas.Left="388" Canvas.Top="259" TextWrapping="Wrap" Height="41" Width="504" Foreground="Yellow" FontFamily="Lato" TextAlignment="Center" FontSize="24" Text="Trwa uczenie. Tryb graficzny jest wyłączony."/>
+        <TextBlock Canvas.Left="524" Canvas.Top="338" TextWrapping="Wrap" Height="38" Width="232" Foreground="Yellow" FontFamily="Lato" TextAlignment="Center" FontSize="24">
+            <Run Text="Generacja:"/>
+            <Run Text="{Binding GenerationNumber}"/>
+        </TextBlock>
+
+    </Canvas>
+</UserControl>

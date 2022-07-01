@@ -1,0 +1,44 @@
+﻿<Window x:Class="NeurogameFighters.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:NeurogameFighters.Views"
+        xmlns:controllers="clr-namespace:NeurogameFighters.Controllers"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="NeuroFighters" 
+        Height="720" 
+        Width="1280"
+        WindowStartupLocation="CenterScreen"
+        Icon="/images/icon.png"
+       >
+
+    <ContentControl Content="{Binding CurrentController}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type controllers:MainMenuController}">
+                <views:MainMenuView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type controllers:PvPModeController}">
+                <views:PvPModeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type controllers:GameOverController}">
+                <views:GameOverView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type controllers:GameModeSelectionController}">
+                <views:GameModeSelectionView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type controllers:LearningModeController}">
+                <views:LearningModeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type controllers:BlackScreenModeController}">
+                <views:BlackScreenModeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type controllers:PlayerVsAiModeController}">
+                <views:PlayerVsAiModeView />
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
+
+</Window>
+

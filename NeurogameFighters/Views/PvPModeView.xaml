@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="NeurogameFighters.Views.PvPModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:local="clr-namespace:NeurogameFighters.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280" Focusable="True" Loaded="GameView_Loaded" >
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewKeyDown">
+            <i:InvokeCommandAction Command="{Binding OnPreviewKeyDownCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="PreviewKeyUp">
+            <i:InvokeCommandAction Command="{Binding OnPreviewKeyUpCommand}" PassEventArgsToCommand="True"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Canvas>
+
+        <Canvas.Background>
+            <ImageBrush ImageSource="/images/background1.png"/>
+        </Canvas.Background>
+
+        <Canvas Height="60" Width="1280">
+            <TextBlock TextWrapping="Wrap" Height="42" Width="230" FontSize="32" TextAlignment="Center" Canvas.Left="525" Canvas.Top="9" Foreground="Yellow">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} : {1}">
+                        <Binding Path="Player1.Life" />
+                        <Binding Path="Player2.Life" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <Button Command="{Binding ChangeControllerToModeSelectionCommand}" Height="35" Width="35" Canvas.Left="1213" Canvas.Top="13" FontSize="20" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/images/return.png"/>
+                </Button.Background>
+            </Button>
+        </Canvas>
+
+        <Canvas Name="Playground" Height="660" Width="1280" Canvas.Top="60">
+
+            <Rectangle Name="Player1" Fill="{Binding Player1View.JetFill}" Height="{Binding Player1.Height}" Width="{Binding Player1.Width}" Canvas.Left="{Binding Player1.Left}" Canvas.Top="{Binding Player1.Top}" RenderTransformOrigin="0.5, 0.5">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="{Binding Player1.Angle}"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle Name="Player2" Fill="{Binding Player2View.JetFill}" Height="{Binding Player2.Height}" Width="{Binding Player2.Width}" Canvas.Left="{Binding Player2.Left}" Canvas.Top="{Binding Player2.Top}" RenderTransformOrigin="0.5, 0.5">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="{Binding Player2.Angle}"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <ItemsControl ItemsSource="{Binding Player1.Bullets}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+                        <Setter Property = "Canvas.Top" Value = "{Binding Top}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding BulletView.BulletFill}" >
+                            <Rectangle.RenderTransform>
+                                <RotateTransform x:Name="bulletRotation" Angle="{Binding Angle}"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <ItemsControl ItemsSource="{Binding Player2.Bullets}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+                        <Setter Property = "Canvas.Top" Value = "{Binding Top}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding BulletView.BulletFill}" >
+                            <Rectangle.RenderTransform>
+                                <RotateTransform x:Name="bulletRotation" Angle="{Binding Angle}"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </Canvas>
+    </Canvas>
+</UserControl>

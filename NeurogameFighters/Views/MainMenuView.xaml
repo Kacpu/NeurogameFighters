@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="NeurogameFighters.Views.MainMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeurogameFighters.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid>
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/bg7.png"/>
+        </Grid.Background>
+
+        <Button Command="{Binding ChangeControllerToGameModeSelectionCommand}"  Content="Start" HorizontalAlignment="Center" Margin="0,460,0,0" VerticalAlignment="Top" Foreground="#FFA7B1AD" Width="169" Height="50" FontFamily="Lato" FontSize="20" FontWeight="Normal" BorderBrush="{x:Null}">
+            <Button.Background>
+                <SolidColorBrush Color="#FF6B6B6B" Opacity="0.15"/>
+            </Button.Background>
+        </Button>
+
+        <Button Command="{Binding ExitCommand}" Content="Exit" HorizontalAlignment="Center" Margin="0,520,0,0" VerticalAlignment="Top" Width="169" Height="50" FontFamily="Lato" FontSize="20" Foreground="#FFA7B1AD" FontWeight="Normal" BorderBrush="{x:Null}">
+            <Button.Background>
+                <SolidColorBrush Color="#FF6B6B6B" Opacity="0.15"/>
+            </Button.Background>
+        </Button>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,135,0,0" Text="NEUROFIGHTERS" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="151" Width="748" Foreground="#FF919693" FontSize="100" FontStretch="Medium" FontWeight="Thin" FontFamily="Yu Gothic UI"/>
+        <Label Content="© Kacper Tarłowski" HorizontalAlignment="Center" Margin="0,650,0,0" VerticalAlignment="Top" Foreground="#FF919693" FontWeight="Thin"/>
+
+    </Grid>
+</UserControl>

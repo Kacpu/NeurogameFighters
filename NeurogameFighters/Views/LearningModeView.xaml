@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="NeurogameFighters.Views.LearningModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NeurogameFighters.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/images/background1.png"/>
+        </Canvas.Background>
+
+        <Canvas Height="60" Width="1280">
+            <TextBlock TextWrapping="Wrap" Height="42" Width="230" FontSize="32" TextAlignment="Center" Canvas.Left="525" Canvas.Top="9" Foreground="Yellow">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} : {1}">
+                        <Binding Path="Player1.Life" />
+                        <Binding Path="Player2.Life" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <Button Canvas.Left="60" Canvas.Top="20"/>
+            <Button Command="{Binding ChangeControllerToBlackScreenModeCommand}"  Content="Wyłącz tryb graficzny" Foreground="Yellow" Width="200" Height="39" FontFamily="Lato" FontSize="18" FontWeight="Normal" BorderBrush="{x:Null}" Canvas.Left="32" Canvas.Top="9">
+                <Button.Background>
+                    <SolidColorBrush Color="#FF6B6B6B" Opacity="0.15"/>
+                </Button.Background>
+            </Button>
+            <Button Command="{Binding ChangeControllerToModeSelectionCommand}"  Content="Zakończ" Foreground="Yellow" Width="95" Height="40" FontFamily="Lato" FontSize="18" FontWeight="Normal" BorderBrush="{x:Null}" Canvas.Left="1151" Canvas.Top="10">
+                <Button.Background>
+                    <SolidColorBrush Color="#FF6B6B6B" Opacity="0.15"/>
+                </Button.Background>
+            </Button>
+        </Canvas>
+
+        <Canvas Name="Playground" Height="660" Width="1280" Canvas.Top="60">
+
+            <Rectangle Name="Player1" Fill="{Binding Player1View.JetFill}" Height="{Binding Player1.Height}" Width="{Binding Player1.Width}" Canvas.Left="{Binding Player1.Left}" Canvas.Top="{Binding Player1.Top}" RenderTransformOrigin="0.5, 0.5">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="{Binding Player1.Angle}"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle Name="Player2" Fill="{Binding Player2View.JetFill}" Height="{Binding Player2.Height}" Width="{Binding Player2.Width}" Canvas.Left="{Binding Player2.Left}" Canvas.Top="{Binding Player2.Top}" RenderTransformOrigin="0.5, 0.5">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="{Binding Player2.Angle}"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <ItemsControl ItemsSource="{Binding Player1.Bullets}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+                        <Setter Property = "Canvas.Top" Value = "{Binding Top}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding BulletView.BulletFill}" >
+                            <Rectangle.RenderTransform>
+                                <RotateTransform x:Name="bulletRotation" Angle="{Binding Angle}"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <ItemsControl ItemsSource="{Binding Player2.Bullets}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Canvas.Left" Value="{Binding Left}"/>
+                        <Setter Property = "Canvas.Top" Value = "{Binding Top}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding BulletView.BulletFill}" >
+                            <Rectangle.RenderTransform>
+                                <RotateTransform x:Name="bulletRotation" Angle="{Binding Angle}"/>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <TextBlock Canvas.Left="33" Canvas.Top="66" TextWrapping="Wrap" Height="28" Width="150" Foreground="Yellow" FontFamily="Lato" FontSize="17">
+                <Run Text="Generacja:"/>
+                <Run Text="{Binding BattleCamp.GenerationNumber}"/>
+            </TextBlock>
+
+            <TextBlock Canvas.Left="33" Canvas.Top="97" TextWrapping="Wrap" Height="28" Width="150" Foreground="Yellow" FontFamily="Lato" FontSize="17">
+                <Run Text="Para:"/>
+                <Run Text="{Binding BattleCamp.FightingPair}"/>
+            </TextBlock>
+
+            <TextBlock Canvas.Left="33" Canvas.Top="33" TextWrapping="Wrap" Height="28" Width="202" Foreground="Yellow" FontFamily="Lato" FontSize="17">
+                <Run Text="Pozostałe walki:"/>
+                <Run Text="{Binding BattleCamp.ActiveFights}"/>
+            </TextBlock>
+
+            <TextBlock Canvas.Left="33" Canvas.Top="125" TextWrapping="Wrap" Height="28" Width="133" Foreground="Yellow" FontFamily="Lato" FontSize="17">
+                <Run Text="Best:"/>
+                <Run Text="{Binding BattleCamp.BestFitness}"/>
+            </TextBlock>
+
+        </Canvas>
+    </Canvas>
+</UserControl>
