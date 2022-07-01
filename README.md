@@ -18,7 +18,9 @@ Controls (Player 1, Player 2)
 * XAML
 
 ## Launch
-In the publish directory run the `NeuroFighters.exe` file or go to the NeurogameFighters directory with the .csproj file and type `dotnet run` in terminal.
+To run the application you must have .NET 5 installed.
+
+Then run `NeuroFighters.exe` in the publish directory or go to the NeurogameFighters directory with the .csproj file and type `dotnet run` in terminal.
 
 ## Features
 * Player vs Player mode
