@@ -1,5 +1,5 @@
 # Neurogame Fighters
-"Fighters" game with elements of machine learning based on a neural network and a genetic algorithm.
+Shooter game with elements of machine learning based on a neural network and a genetic algorithm.
 
 Two fighters with a certain number of lives move around the board and shoot the opponent to survive.
 
