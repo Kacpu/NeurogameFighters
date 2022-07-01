@@ -14,8 +14,8 @@ namespace NeurogameFighters.Controllers
         private readonly Fighter opponent;
         private readonly int maxDecisionsNumber = 5;
         private double firstMaxOutput;
-        private double makeDecisionTreshold = 0.5;
-        int counter = 0;
+        //private double makeDecisionTreshold = 0.5;
+        //int counter = 0;
         private readonly int reactionTime = 100; //ms
 
         public NeuralNetworkController(Fighter fighter, Fighter opponent)
