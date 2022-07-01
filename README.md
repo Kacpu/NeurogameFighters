@@ -3,7 +3,7 @@
 
 Two fighters with a certain number of lives move around the board and shoot the opponent to survive.
 
-Controls (Player 1, Player, 2)
+Controls (Player 1, Player 2)
 
 * Move forward - **W, Up Arrow**
 * Move backward - **S, Down Arrow**
@@ -18,11 +18,12 @@ Controls (Player 1, Player, 2)
 * XAML
 
 ## Launch
+In the publish directory run the `NeuroFighters.exe` file or go to the NeurogameFighters directory with the .csproj file and type `dotnet run` in terminal.
 
 ## Features
 * Player vs Player mode
 * Player vs AI Mode - AI controlled deterministically or by a neural network if it was previously created in the learning mode
-* Learning AI mode - population of neural networks learned by genetic algorithm, at the end the best neural network is saved
+* Learning AI mode - population of neural networks trained by the genetic algorithm, at the end the best neural network is saved
 
 ## Screenshots
 <p align="center">
