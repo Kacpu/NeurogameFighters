@@ -60,16 +60,19 @@
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
+                    <Style>
                         <Setter Property="Canvas.Left" Value="{Binding Left}"/>
-                        <Setter Property = "Canvas.Top" Value = "{Binding Top}" />
+                        <Setter Property="Canvas.Top" Value="{Binding Top}" />
                     </Style>
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding BulletView.BulletFill}" >
+                            <Rectangle.Resources>
+                                <RotateTransform x:Key="r" Angle="{Binding Angle}"/>
+                            </Rectangle.Resources>
                             <Rectangle.RenderTransform>
-                                <RotateTransform x:Name="bulletRotation" Angle="{Binding Angle}"/>
+                                <StaticResource ResourceKey="r" />
                             </Rectangle.RenderTransform>
                         </Rectangle>
                     </DataTemplate>
@@ -81,11 +84,11 @@
                     <ItemsPanelTemplate>
                         <Canvas/>
                     </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                </ItemsControl.ItemsPanel>   
                 <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
+                    <Style>
                         <Setter Property="Canvas.Left" Value="{Binding Left}"/>
-                        <Setter Property = "Canvas.Top" Value = "{Binding Top}" />
+                        <Setter Property="Canvas.Top" Value ="{Binding Top}" />
                     </Style>
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>

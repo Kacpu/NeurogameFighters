@@ -6,14 +6,14 @@ namespace NeurogameFighters.Controllers
     {
         public event Action CurrentControllerChanged;
 
-        private ControllerBase currentController;
+        private ControllerBase _currentController;
 
         public ControllerBase CurrentController
         {
-            get => currentController;
+            get => _currentController;
             set
             {
-                currentController = value;
+                _currentController = value;
                 OnCurrentControllerChanged();
             }
         }
