@@ -1,5 +1,5 @@
 # Neurogame Fighters
-Shooter game with elements of machine learning based on a neural network and a genetic algorithm.
+Shooter game with machine learning elements based on a neural network and a genetic algorithm.
 
 Two fighters with a certain number of lives move around the board and shoot the opponent to survive.
 
@@ -12,8 +12,8 @@ Controls (Player 1, Player 2)
 * Shoot - **Space, K**
 
 ## Technologies
-* WPF
 * .NET 5
+* WPF
 * C#
 * XAML
 
@@ -24,8 +24,8 @@ Then run `NeuroFighters.exe` in the publish directory or go to the NeurogameFigh
 
 ## Features
 * Player vs Player mode
-* Player vs AI Mode - AI controlled deterministically or by a neural network if it was previously created in the learning mode
-* Learning AI mode - population of neural networks trained by the genetic algorithm, at the end the best neural network is saved
+* Player vs AI Mode - AI controlled deterministically or by a neural network if the neural network has been previously created in the learning mode
+* Learning AI mode - population of neural networks trained by the genetic algorithm, the best neural network is saved at the end
 
 ## Screenshots
 <p align="center">
