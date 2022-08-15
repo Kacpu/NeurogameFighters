@@ -69,10 +69,10 @@
                     <DataTemplate>
                         <Rectangle Width="{Binding Width}" Height="{Binding Height}" Fill="{Binding BulletView.BulletFill}" >
                             <Rectangle.Resources>
-                                <RotateTransform x:Key="r" Angle="{Binding Angle}"/>
+                                <RotateTransform x:Key="bulletRotateTransform" Angle="{Binding Angle}"/>
                             </Rectangle.Resources>
                             <Rectangle.RenderTransform>
-                                <StaticResource ResourceKey="r" />
+                                <StaticResource ResourceKey="bulletRotateTransform" />
                             </Rectangle.RenderTransform>
                         </Rectangle>
                     </DataTemplate>
